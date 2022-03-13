@@ -41,9 +41,4 @@ class HomeController extends Controller
     return view('user-map', compact('locations', 'zommed', 'user'));
   }
 
-  public function userLocations(User $user)
-  {
-    $locations = $user->locations;
-    return view('user-locations', compact('locations'));
-  }
 }

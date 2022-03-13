@@ -18,17 +18,11 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/list-users', [App\Http\Controllers\HomeController::class, 'listUsers'])->name('listUsers');
+#home page
+Route::get('/home', "HomeController@index")->name('home');
+#list all users
+Route::get('/list-users', "HomeController@listUsers")->name('listUsers');
+#display user locations on map
 Route::get('/user-map/{user}', "HomeController@userMap")->name('user.map');
-
+#location operations for specific user
 Route::resource('users.locations', 'LocationController')->except(['show']);
-
-// Route::get('/user-locations/{user}', [App\Http\Controllers\HomeController::class, 'userLocations'])->name('userLocations');
-// Route::get('/user-locations/{user}', [App\Http\Controllers\HomeController::class, 'userLocations'])->name('userLocations');
-// Route::get('/create-user-locations/{user}', [App\Http\Controllers\HomeController::class, 'userLocations'])->name('userLocations');

@@ -10,6 +10,9 @@
         <div class="card-body">
           <form method="POST" action="{{ route('users.locations.store',['user'=>$user->id]) }}">
             @csrf
+            @method('post')
+
+            @include('partials._errors')
 
             <div class="row mb-3">
               <label for="lat" class="col-md-4 col-form-label text-md-end"> lat </label>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Location;
 use Illuminate\Http\Request;
+use App\Http\Requests\AddLocationFormRequest;
 
 class LocationController extends Controller
 {
@@ -20,7 +21,7 @@ class LocationController extends Controller
     return view('locations.create', compact('user'));
   }
 
-  public function store(Request $request, User $user)
+  public function store(AddLocationFormRequest $request, User $user)
   {
     $user->locations()->create([
       'lat' => $request->lat,
@@ -28,12 +29,10 @@ class LocationController extends Controller
       'title' => $request->title,
     ]);
     return redirect()->route('users.locations.index', ['user' => $user]);
-  }
-
+  } // end of store
 
   public function destroy(User $user, Location $location)
   {
-
     $user->locations()->find($location->id)->delete();
 
     return redirect()->route('users.locations.index', ['user' => $user]);

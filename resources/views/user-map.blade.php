@@ -45,21 +45,19 @@
   let locations = @php  print_r(json_encode($locations)) @endphp ;
   let zommed = @php  print_r(json_encode($zommed)) @endphp ;
 
-  console.log(locations);
-  console.log(zommed);
-
-        let mymap = new GMaps({
-            el: '#mymap',
-            lat: zommed.lat,
-            lng: zommed.lng,
-            zoom:6
-        });
+    let mymap = new GMaps({
+        el: '#mymap',
+        lat: zommed.lat,
+        lng: zommed.lng,
+        zoom:6
+    });
 
 
     $.each( locations, function( index, value ){
         mymap.addMarker({
           lat: value.lat,
           lng: value.lng,
+          title: value.title,
         });
     });
 });
