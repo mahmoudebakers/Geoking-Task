@@ -3,15 +3,11 @@
 @section('content')
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-md-8">
-      <div class="card">
-        <div class="card-header"> user map ({{ $user->name }})</div>
+    <div class="col-md-12">
+      <div class="card-header"> user map ({{ $user->name }})</div>
 
-        <div class="card-body">
-          {{-- map container --}}
-          <div id="mymap"></div>
-        </div>
-      </div>
+      {{-- map container --}}
+      <div id="mymap"></div>
     </div>
   </div>
 </div>
